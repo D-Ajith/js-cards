@@ -241,105 +241,195 @@ var data=[
     }
   ]
 
-  function getdata(){
-    let cardcontainer=document.getElementById("cardcontainer")
-    cardcontainer.style.display="flex"
-    cardcontainer.style.flexWrap="wrap"
-    cardcontainer.style.justifyContent="center"
-    for(i=0;i<data.length;i++){
-      let card=document.createElement("div")
-      card.innerHTML=`
-      <img src='${data[i].image}' width="250" height="250"/>
-      <p>${data[i].price}</p>
-      <p>${data[i].rating.rate}</p>
-      <h3>${data[i].title}</h3>`
-      card.style.width="350px"
-      cardcontainer.appendChild(card)
-    }
-  }
+// method 1  using for loop , filter
+  // let cardcontainer=document.getElementById("cardcontainer")
+  // cardcontainer.style.display="flex"
+  // cardcontainer.style.flexWrap="wrap"
+  // cardcontainer.style.justifyContent="center"
+  // function getdata(){
+  //   cardcontainer.innerHTML=""
+  //   for(i=0;i<data.length;i++){
+  //     let card=document.createElement("div")
+  //     card.innerHTML=`
+  //     <img src='${data[i].image}' width="250" height="250"/>
+  //     <p>${data[i].price}</p>
+  //     <p>${data[i].rating.rate}</p>
+  //     <h3>${data[i].title}</h3>`
+  //     card.style.width="350px"
+  //     cardcontainer.appendChild(card)
+  //   }
+  // }
   
+  // function getmen(){
+  //       cardcontainer.innerHTML=""
+  //   const filtereddata=data.filter(x=>{
+  //     if(x.category === "men's clothing"){
+    
+  //     let card=document.createElement("div")
+  //     card.innerHTML=`
+  //     <img src='${x.image}' width="250" height="250"/>
+  //     <p>${x.price}</p>
+  //     <p>${x.rating.rate}</p>
+  //     <h3>${x.title}</h3>`
+  //     card.style.width="350px"
+  //     cardcontainer.appendChild(card)
+  //  }})
+  // }
+  // function getwomen(){
+  //       cardcontainer.innerHTML=""
+  //   const filtereddata=data.filter(x=>{
+  //     if(x.category === "women's clothing"){
+      
+  //     let card=document.createElement("div")
+  //     card.innerHTML=`
+  //     <img src='${x.image}' width="250" height="250"/>
+  //     <p>${x.price}</p>
+  //     <p>${x.rating.rate}</p>
+  //     <h3>${x.title}</h3>`
+  //     card.style.width="350px"
+  //     cardcontainer.appendChild(card)
+  //  }})
+  // }
+  // function getelectronics(){
+  //       cardcontainer.innerHTML=""
+  //   const filtereddata=data.filter(x=>{
+  //     if(x.category == "electronics"){
+    
+  //     let card=document.createElement("div")
+  //     card.innerHTML=`
+  //     <img src='${x.image}' width="250" height="250"/>
+  //     <p>${x.price}</p>
+  //     <p>${x.rating.rate}</p>
+  //     <h3>${x.title}</h3>`
+  //     card.style.width="350px"
+  //     cardcontainer.appendChild(card)
+  //  }})
+  // }
+  // function getjewelery(){
+  //       cardcontainer.innerHTML=""
+  //   const filtereddata=data.filter(x=>{
+  //     if(x.category === "jewelery"){
+     
+  //     let card=document.createElement("div")
+  //     card.innerHTML=`
+  //     <img src='${x.image}' width="250" height="250"/>
+  //     <p>${x.price}</p>
+  //     <p>${x.rating.rate}</p>
+  //     <h3>${x.title}</h3>`
+  //     card.style.width="350px"
+  //     cardcontainer.appendChild(card)
+  //  }})
+  // }
+  // function getrating(){
+  //       cardcontainer.innerHTML=""
+  //   const filtereddata=data.filter(x=>{
+  //     if(x.rating.rate >3.5){
+  //     let card=document.createElement("div")
+  //     card.innerHTML=`
+  //     <img src='${x.image}' width="250" height="250"/>
+  //     <p>${x.price}</p>
+  //     <p>${x.rating.rate}</p>
+  //     <h3>${x.title}</h3>`
+  //     card.style.width="350px"
+  //     cardcontainer.appendChild(card)
+  //  }})
+  // }
+
+
+
+  // method 2 using foreach
+  let cardcontainer=document.getElementById("cardcontainer")
+  cardcontainer.style.display="flex"
+  cardcontainer.style.flexWrap="wrap"
+  cardcontainer.style.justifyContent="center"
+  function getdata(){
+    cardcontainer.innerHTML=""
+    data.forEach((x)=>{
+      let card=document.createElement("div")
+      card.innerHTML=` <img src='${x.image}' width="250" height="250"/>
+      <p>${x.price}</p>
+      <p>${x.rating.rate}</p>
+      <h3>${x.title}</h3>`
+      card.style.width="350px"
+      cardcontainer.appendChild(card)
+    })
+  }
+
   function getmen(){
-    const filtereddata=data.filter(x=>{
-      if(x.category === "men's clothing"){
-      let cardcontainer=document.getElementById("cardcontainer")
-    cardcontainer.style.display="flex"
-    cardcontainer.style.flexWrap="wrap"
-    cardcontainer.style.justifyContent="center"
-      let card=document.createElement("div")
-      card.innerHTML=`
-      <img src='${x.image}' width="250" height="250"/>
-      <p>${x.price}</p>
-      <p>${x.rating.rate}</p>
-      <h3>${x.title}</h3>`
-      card.style.width="350px"
-      cardcontainer.appendChild(card)
-   }})
+     cardcontainer.innerHTML=""
+    data.forEach((x)=>{
+      if(x.category==="men's clothing"){
+        let card=document.createElement("div")
+        card.innerHTML=` <img src='${x.image}' width="250" height="250"/>
+        <p>${x.price}</p>
+        <p>${x.rating.rate}</p>
+        <h3>${x.title}</h3>`
+        card.style.width="350px"
+        cardcontainer.appendChild(card)
+        }
+    })
   }
+
   function getwomen(){
-    const filtereddata=data.filter(x=>{
-      if(x.category === "women's clothing"){
-      let cardcontainer=document.getElementById("cardcontainer")
-    cardcontainer.style.display="flex"
-    cardcontainer.style.flexWrap="wrap"
-    cardcontainer.style.justifyContent="center"
-      let card=document.createElement("div")
+     cardcontainer.innerHTML=""
+    data.forEach((x)=>{
+      if(x.category==="women's clothing"){
+         let card=document.createElement("div")
       card.innerHTML=`
       <img src='${x.image}' width="250" height="250"/>
-      <p>${x.price}</p>
-      <p>${x.rating.rate}</p>
-      <h3>${x.title}</h3>`
-      card.style.width="350px"
-      cardcontainer.appendChild(card)
-   }})
+        <p>${x.price}</p>
+        <p>${x.rating.rate}</p>
+        <h3>${x.title}</h3>`
+        card.style.width="350px"
+        cardcontainer.appendChild(card)
+      }
+    })
   }
+
   function getelectronics(){
-    const filtereddata=data.filter(x=>{
-      if(x.category == "electronics"){
-      let cardcontainer=document.getElementById("cardcontainer")
-    cardcontainer.style.display="flex"
-    cardcontainer.style.flexWrap="wrap"
-    cardcontainer.style.justifyContent="center"
-      let card=document.createElement("div")
+     cardcontainer.innerHTML=""
+    data.forEach((x)=>{
+      if(x.category==="electronics"){
+         let card=document.createElement("div")
       card.innerHTML=`
       <img src='${x.image}' width="250" height="250"/>
-      <p>${x.price}</p>
-      <p>${x.rating.rate}</p>
-      <h3>${x.title}</h3>`
-      card.style.width="350px"
-      cardcontainer.appendChild(card)
-   }})
+        <p>${x.price}</p>
+        <p>${x.rating.rate}</p>
+        <h3>${x.title}</h3>`
+        card.style.width="350px"
+        cardcontainer.appendChild(card)
+      }
+    })
   }
+
   function getjewelery(){
-    const filtereddata=data.filter(x=>{
-      if(x.category === "jewelery"){
-      let cardcontainer=document.getElementById("cardcontainer")
-    cardcontainer.style.display="flex"
-    cardcontainer.style.flexWrap="wrap"
-    cardcontainer.style.justifyContent="center"
-      let card=document.createElement("div")
+     cardcontainer.innerHTML=""
+    data.forEach((x)=>{
+      if(x.category==="jewelery"){
+         let card=document.createElement("div")
       card.innerHTML=`
       <img src='${x.image}' width="250" height="250"/>
-      <p>${x.price}</p>
-      <p>${x.rating.rate}</p>
-      <h3>${x.title}</h3>`
-      card.style.width="350px"
-      cardcontainer.appendChild(card)
-   }})
+        <p>${x.price}</p>
+        <p>${x.rating.rate}</p>
+        <h3>${x.title}</h3>`
+        card.style.width="350px"
+        cardcontainer.appendChild(card)
+      }
+    })
   }
+
   function getrating(){
-    const filtereddata=data.filter(x=>{
+     cardcontainer.innerHTML=""
+    data.forEach((x)=>{
       if(x.rating.rate >3.5){
-      let cardcontainer=document.getElementById("cardcontainer")
-    cardcontainer.style.display="flex"
-    cardcontainer.style.flexWrap="wrap"
-    cardcontainer.style.justifyContent="center"
-      let card=document.createElement("div")
+         let card=document.createElement("div")
       card.innerHTML=`
       <img src='${x.image}' width="250" height="250"/>
-      <p>${x.price}</p>
-      <p>${x.rating.rate}</p>
-      <h3>${x.title}</h3>`
-      card.style.width="350px"
-      cardcontainer.appendChild(card)
-   }})
+        <p>${x.price}</p>
+        <p>${x.rating.rate}</p>
+        <h3>${x.title}</h3>`
+        card.style.width="350px"
+        cardcontainer.appendChild(card)
+      }
+    })
   }
